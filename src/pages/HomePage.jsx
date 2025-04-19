@@ -9,15 +9,20 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import React from "react";
+import React, { useState } from "react";
 
 const HomePage = () => {
+  const [activeTab, setActiveTab] = useState("register");
   return (
     <div className="h-screen flex justify-center items-center bg-amber-300">
       <div className="w-full max-w-md p-3 shadow-md bg-blue-200 items-center justify-center text-center rounded-2xl">
         <span className="text-5xl font-bold font-sans">Live Chat</span>
         <Separator />
-        <Tabs defaultValue="account" className="w-full mt-4">
+        <Tabs
+          value={activeTab}
+          onValueChange={setActiveTab}
+          className="w-full mt-4"
+        >
           <TabsList className="w-full mb-2 ">
             <TabsTrigger value="account" className="hover:cursor-pointer">
               Login
@@ -30,7 +35,7 @@ const HomePage = () => {
             <Login />
           </TabsContent>
           <TabsContent value="password">
-            <Register />
+            <Register setActiveTab={setActiveTab} />
           </TabsContent>
         </Tabs>
       </div>

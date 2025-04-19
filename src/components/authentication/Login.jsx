@@ -8,6 +8,10 @@ const initialState = {
 };
 const Login = () => {
   const [formData, setFormData] = useState(initialState);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="w-full">
       <CommonForm
@@ -15,6 +19,7 @@ const Login = () => {
         buttonText={"Login"}
         formData={formData}
         setFormData={setFormData}
+        onSubmit={onSubmit}
       />
     </div>
   );

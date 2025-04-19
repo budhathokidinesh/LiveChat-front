@@ -20,6 +20,19 @@ export const registerFormControls = [
     componentType: "input",
     type: "password",
   },
+  {
+    name: "confirmPassword",
+    label: "Confirm Password",
+    placeholder: "Enter password",
+    componentType: "input",
+    type: "password",
+  },
+  {
+    name: "profilePic",
+    label: "Profile Picture",
+    componentType: "file",
+    type: "file",
+  },
 ];
 export const loginFormControls = [
   {
