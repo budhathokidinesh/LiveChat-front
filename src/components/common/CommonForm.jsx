@@ -118,18 +118,6 @@ const CommonForm = ({
       <Button type="submit" className="mt-2 mb-4 w-full hover:cursor-pointer">
         {buttonText || "Submit"}
       </Button>
-      {buttonText === "Login" ? (
-        <Button
-          type="submit"
-          onClick={() => {
-            setEmail("guest@example.com");
-            setPassword("12345");
-          }}
-          className="mt-2 mb-4 w-full hover:cursor-pointer"
-        >
-          Get Guest User Credential
-        </Button>
-      ) : null}
     </form>
   );
 };
