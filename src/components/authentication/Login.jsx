@@ -4,7 +4,7 @@ import { loginFormControls } from "@/config/config";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { loginUser } from "@/store/user/userSlice";
+import { loginUser } from "@/store/auth/authSlice";
 
 const initialState = {
   email: "",

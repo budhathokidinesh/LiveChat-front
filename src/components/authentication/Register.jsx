@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CommonForm from "../common/CommonForm";
 import { registerFormControls } from "@/config/config";
 import { useDispatch } from "react-redux";
-import { registerUser, uploadImage } from "@/store/user/userSlice";
+import { registerUser, uploadImage } from "@/store/auth/authSlice";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 

@@ -14,7 +14,7 @@ import React, { useState } from "react";
 const HomePage = () => {
   const [activeTab, setActiveTab] = useState("register");
   return (
-    <div className="h-screen flex justify-center items-center bg-amber-300">
+    <div className="h-screen flex justify-center items-center">
       <div className="w-full max-w-md p-3 shadow-md bg-blue-200 items-center justify-center text-center rounded-2xl">
         <span className="text-5xl font-bold font-sans">Live Chat</span>
         <Separator />

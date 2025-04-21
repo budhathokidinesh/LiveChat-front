@@ -3,7 +3,7 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 import { useDispatch } from "react-redux";
-import { uploadImage } from "@/store/user/userSlice";
+import { uploadImage } from "@/store/auth/authSlice";
 
 const CommonForm = ({
   formControls,

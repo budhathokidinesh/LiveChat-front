@@ -15,7 +15,7 @@ export const registerUser = createAsyncThunk(
   "user/registerUser",
   async (formData) => {
     const response = await axios.post(
-      `${BASE_URL}/api/user/register`,
+      `${BASE_URL}/api/auth/register`,
       formData
     );
     return response.data;
@@ -26,7 +26,7 @@ export const registerUser = createAsyncThunk(
 export const loginUser = createAsyncThunk(
   "user/loginUser",
   async (formData) => {
-    const response = await axios.post(`${BASE_URL}/api/user/login`, formData);
+    const response = await axios.post(`${BASE_URL}/api/auth/login`, formData);
     return response.data;
   }
 );
