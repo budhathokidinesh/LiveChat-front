@@ -1,15 +1,13 @@
 import React from "react";
 import Conversation from "./Conversation";
 
-const Chat = () => {
+const Chat = ({ selectedUser, setSelectedUser }) => {
   return (
     <div className="py-3 flex flex-col overflow-auto gap-2">
-      <Conversation />
-      <Conversation />
-      <Conversation />
-      <Conversation />
-      <Conversation />
-      <Conversation />
+      <Conversation
+        selectedUser={selectedUser}
+        setSelectedUser={setSelectedUser}
+      />
     </div>
   );
 };

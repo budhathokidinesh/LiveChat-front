@@ -26,10 +26,18 @@ export const registerUser = createAsyncThunk(
 export const loginUser = createAsyncThunk(
   "user/loginUser",
   async (formData) => {
-    const response = await axios.post(`${BASE_URL}/api/auth/login`, formData);
+    const response = await axios.post(`${BASE_URL}/api/auth/login`, formData, {
+      withCredentials: true,
+    });
     return response.data;
   }
 );
+
+//this is for logout user
+export const LogoutUser = createAsyncThunk("/user/logoutUser", async () => {
+  const response = await axios.post(`${BASE_URL}/api/auth/logout`);
+  return response.data;
+});
 
 //this is for uploading image
 export const uploadImage = createAsyncThunk(
@@ -38,7 +46,7 @@ export const uploadImage = createAsyncThunk(
     const formData = new FormData();
     formData.append("profilePic", file);
     const response = await axios.post(
-      `${BASE_URL}/api/user/upload-image`,
+      `${BASE_URL}/api/auth/upload-image`,
       formData,
       {
         headers: {
@@ -102,6 +110,9 @@ const userSlice = createSlice({
         state.isLoading = false;
         state.uploadedImage = null;
         state.error = action.error.message || "Image upload failed";
+      })
+      .addCase(LogoutUser.fulfilled, (state) => {
+        (state.isLoading = false), (state.user = null);
       });
   },
 });

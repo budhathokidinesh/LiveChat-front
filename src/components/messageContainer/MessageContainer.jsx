@@ -1,10 +1,10 @@
 import React from "react";
 import MsgContainer from "../messages/MsgContainer";
 
-const MessageContainer = () => {
+const MessageContainer = ({ selectedUser }) => {
   return (
     <div>
-      <MsgContainer />
+      <MsgContainer selectedUser={selectedUser} />
     </div>
   );
 };

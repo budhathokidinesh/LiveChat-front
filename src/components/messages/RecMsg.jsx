@@ -1,8 +1,8 @@
 import React from "react";
 
-const Msg = ({ message }) => {
+const RecMsg = ({ message }) => {
   return (
-    <div className="chat chat-end">
+    <div className="chat chat-start">
       <div className="chat-image avatar">
         <div className="w-10 h-10 rounded-full">
           <img src="./profile.jpg" alt="chat bubble component" />
@@ -21,4 +21,4 @@ const Msg = ({ message }) => {
   );
 };
 
-export default Msg;
+export default RecMsg;

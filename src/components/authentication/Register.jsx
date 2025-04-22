@@ -4,7 +4,6 @@ import { registerFormControls } from "@/config/config";
 import { useDispatch } from "react-redux";
 import { registerUser, uploadImage } from "@/store/auth/authSlice";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 
 const initialState = {
   name: "",
@@ -44,6 +43,7 @@ const Register = ({ setActiveTab }) => {
     if (formData.password !== formData.confirmPassword) {
       return toast.error("Password do not match");
     }
+
     try {
       let imageUrl = null;
       if (formData?.profilePic) {

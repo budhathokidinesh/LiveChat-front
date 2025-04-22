@@ -3,21 +3,23 @@ import Messages from "./Messages";
 import MessageInput from "./MessageInput";
 import { IoIosChatboxes } from "react-icons/io";
 
-const MsgContainer = () => {
-  const noChatSelected = true;
+const MsgContainer = ({ selectedUser }) => {
+  console.log("💡 MsgContainer selectedUser:", selectedUser);
   return (
     <div className="md:min-w-[450px] flex flex-col h-full ">
-      {noChatSelected ? (
+      {!selectedUser ? (
         <NoChatSelected />
       ) : (
         <>
           {/* Header  */}
           <div className="bg-slate-700 px-4 py-2 mb-2 rounded-2xl">
             <span className="label-text text-gray-400">To: </span>
-            <span className="text-gray-400 font-bold">Dinesh Budhathoki</span>
+            <span className="text-gray-400 font-bold">
+              {selectedUser?.name}
+            </span>
           </div>
-          <Messages />
-          <MessageInput />
+          <Messages userId={selectedUser._id} />
+          <MessageInput receiverId={selectedUser._id} />
         </>
       )}
     </div>
