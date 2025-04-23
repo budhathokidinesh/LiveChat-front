@@ -6,16 +6,17 @@ import socket from "@/socket";
 
 const Messages = ({ userId }) => {
   const dispatch = useDispatch();
-  const { messages, currentUserId } = useSelector((state) => state.message);
+  const { user } = useSelector((state) => state.user);
+  const { messages } = useSelector((state) => state.message);
 
   // Ref to the container that holds the messages
   const messagesEndRef = useRef(null);
   //this is for fetching messages
   useEffect(() => {
-    if (userId && userId !== currentUserId) {
+    if (userId && userId !== user?._id) {
       dispatch(fetcheMessages(userId));
     }
-  }, [userId, dispatch]);
+  }, [userId, dispatch, user?._id]);
 
   //this is for listning real time messages
   useEffect(() => {
@@ -40,7 +41,11 @@ const Messages = ({ userId }) => {
         <p className="text-center">Send messages to start conversation.</p>
       )}
       {messages?.map((msg) => (
-        <Msg key={msg._id} message={msg} />
+        <Msg
+          key={msg._id}
+          message={msg}
+          isOwnMessage={msg.senderId === user?._id}
+        />
       ))}
       {/* Reference to scroll to this div for auto-scrolling */}
 
