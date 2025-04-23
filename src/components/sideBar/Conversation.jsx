@@ -6,7 +6,7 @@ import { getAllUsers } from "@/store/users/userSlice";
 const Conversation = ({ selectedUser, setSelectedUser }) => {
   const dispatch = useDispatch();
   const { userList, isLoading } = useSelector((state) => state.chatUser);
-  console.log("👉 selectedUser:", selectedUser);
+
   //this is for fetching all users
   useEffect(() => {
     dispatch(getAllUsers());

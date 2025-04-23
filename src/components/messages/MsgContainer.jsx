@@ -2,8 +2,12 @@ import React from "react";
 import Messages from "./Messages";
 import MessageInput from "./MessageInput";
 import { IoIosChatboxes } from "react-icons/io";
+import { useSelector } from "react-redux";
 
 const MsgContainer = ({ selectedUser }) => {
+  const { user } = useSelector((state) => state.user);
+  console.log("✅ Logged-in user:", user); // from Redux
+
   console.log("💡 MsgContainer selectedUser:", selectedUser);
   return (
     <div className="md:min-w-[450px] flex flex-col h-full ">

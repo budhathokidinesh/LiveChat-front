@@ -1,3 +1,4 @@
+import socket from "@/socket";
 import { sendMessages } from "@/store/message/messageSlice";
 import React, { useState } from "react";
 import { IoSendSharp } from "react-icons/io5";
@@ -5,13 +6,24 @@ import { useDispatch } from "react-redux";
 
 const MessageInput = ({ receiverId }) => {
   const dispatch = useDispatch();
+
   const [text, setText] = useState("");
   //this is for sending message
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
     if (!text.trim()) return;
-    dispatch(sendMessages({ receiverId, message: text }));
-    setText("");
+    try {
+      //send message to backend
+      const resultActon = dispatch(sendMessages({ receiverId, message: text }));
+      //get real time message via socket
+      const sentMessage = resultActon.payload;
+      //Emit real -time message via socket
+      socket.emit("send-message", { ...sentMessage, receiverId });
+      //clear input
+      setText("");
+    } catch (error) {
+      console.error("Message sending failed", error);
+    }
   };
   return (
     <form onSubmit={handleOnSubmit} className="px-4 my-3 ">

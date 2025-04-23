@@ -42,6 +42,10 @@ const messageSlice = createSlice({
     resetMessage: (state) => {
       state.messages = [];
     },
+    //new reducer to handle messages from socket
+    addMessage: (state, action) => {
+      state.messages.push(action.payload);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -62,5 +66,5 @@ const messageSlice = createSlice({
   },
 });
 
-export const { resetMessage } = messageSlice.actions;
+export const { addMessage, resetMessage } = messageSlice.actions;
 export default messageSlice.reducer;
