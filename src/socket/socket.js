@@ -1,5 +1,5 @@
 import { io } from "socket.io-client";
-const socket = io("https://dns-livechat.netlify.app", {
+const socket = io("https://livechat-back-7hsj.onrender.com", {
   withCredentials: true,
 });
 
